@@ -13,12 +13,6 @@
                             value="{{ todo.title }}">
                     </div>
                     <div class="mb-3">
-                        <label for="project-name-{{todo.id}}" class="form-label">Project Name</label>
-                        <input type="text" class="form-control" id="project-name-{{todo.id}}" name="project_name"
-                            value="{{ todo.project_name|default('') }}">
-                    </div>
-                    <!-- Add this new div for the description -->
-                    <div class="mb-3">
                         <label for="description-{{todo.id}}" class="form-label">Description</label>
                         <textarea class="form-control" id="description-{{todo.id}}" name="description">{{ todo.description|default('') }}</textarea>
                     </div>
