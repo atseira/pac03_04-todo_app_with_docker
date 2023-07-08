@@ -135,6 +135,20 @@ PostgreSQL ini dapat diakses di dalam container pada port 5432. Tapi jika kita i
 
 Pengaturan `restart: always` adalah agar container PostgreSQL selalu di-restart jika terjadi kegagalan.
 
+## Backup & Restore
+Untuk backup digunakan script `db_backup.sh` yang menyimpan database dalam bentuk file `.sql` (contoh file backup lihat folder `backup_example`) dengan penambahan keterangan waktu.
+
+File backup SQL itu dapat dikembalikan ke database dengan menggunakan script `db_restore.sh` disertai input path file SQL yang ingin di-restore.
+
+## `cron`
+Ini service di Linux untuk menjalankan suatu script/aplikasi secara otomatis dalam kurun waktu tertentu. Contohnya, kita buat otomatisasi backup dengan menjalankan `db_backup.sh` dengan konfigurasi sebagai berikut sesuai tangkapan layar:
+```
+crontab -e
+```
+![crontab](readme_img/cron.png)
+
+File `db_backup.sh` akan dijalankan setiap hari pukul 03:30.
+
 <h1 id="jalan">Cara menjalankan aplikasi</h1>
 Clone git ini ke komputer, lalu siapkan file .env berisi `SECRET_KEY`. Jalankan
 ```
