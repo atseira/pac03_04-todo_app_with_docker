@@ -1,5 +1,9 @@
 # Dua proyek jadi satu
-Satu README.md ini akan menjelaskan project dari dua kelas Pacmann sekaligus, yaitu berkaitan tentang [Web Development](#webdev) dan [Linux & Container](#linux).
+Satu README.md ini akan menjelaskan project dari dua kelas Pacmann sekaligus, yaitu berkaitan tentang [Web Development](#webdev) dan [Linux & Container](#linux). Untuk cara menjalankan aplikasi ini di local Anda, [ke bagian berikut](#jalan).
+
+Link video penjelasan:
+- [Webdev](https://youtu.be/nT59Zo40n_E)
+- [Linux & Container](https://youtu.be/rbu_QFUL3Xc)
 
 <h1 id="webdev">Web Development</h1>
 
@@ -131,7 +135,7 @@ PostgreSQL ini dapat diakses di dalam container pada port 5432. Tapi jika kita i
 
 Pengaturan `restart: always` adalah agar container PostgreSQL selalu di-restart jika terjadi kegagalan.
 
-### Cara menjalankan aplikasi
+<h1 id="jalan">Cara menjalankan aplikasi</h1>
 Clone git ini ke komputer, lalu siapkan file .env berisi `SECRET_KEY`. Jalankan
 ```
 py gen_secret_code.py
