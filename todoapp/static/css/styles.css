@@ -1,0 +1,23 @@
+
+
+.todo-item {
+    flex: 1 0 30%; /* grow | shrink | basis */
+    max-width: 33.33%;
+    margin-bottom: 20px;
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* On screens smaller than 600px, set width to 100% */
+@media (max-width: 600px) {
+    .todo-item {
+        width: 100%;
+    }
+}

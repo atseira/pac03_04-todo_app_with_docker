@@ -1,0 +1,19 @@
+<div class="card todo-item">
+    <div class="card-header text-end">
+        <small class="text-muted">{{ todo.project_name }}</small>
+    </div>
+    <div class="card-body">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#editModal{{todo.id}}">
+            <h5 class="card-title">{{ todo.title }}</h5>
+        </a>
+        <p class="card-text one-line">{{ todo.description }}</p>  <!-- add this line -->
+    </div>
+    
+    <div class="card-footer">
+        <div class="d-flex justify-content-between">
+            {% include 'delete_button.html' %}
+            {% include 'update_button.html' %}
+        </div>
+    </div>
+    {% include 'edit_modal.html' %}
+</div>

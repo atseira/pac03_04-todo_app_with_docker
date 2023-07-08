@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+  web:
+    build: .
+    command: python -m flask run --host=0.0.0.0
+    volumes:  
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      FLASK_APP: run.py
+      FLASK_ENV: development
+      SQLALCHEMY_DATABASE_URI: postgresql://postgres:password@db:5432/test
+    ports:
+      - 5000:5000
+    depends_on:
+      - db

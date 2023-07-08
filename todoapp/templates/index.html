@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="container">
+
+  <h1>My To-Do List</h1>
+  <div class="container">
+    <form action="{{ url_for('main.index') }}" method="get">
+      <select name="project_name" onchange="this.form.submit()">
+        <option value="">--Select Project--</option>
+        {% for project in projects %}
+        <option value="{{ project[0] }}" {% if project[0]==project_name %}selected{% endif %}>{{ project[0] }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  <div class="container">
+    {% if project_name %}
+    <h3>Showing todos for project: {{ project_name }}</h3>
+    {% endif %}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6" id="incomplete-todos">
+        <h2>Incomplete Todos</h2>
+        {% for todo in incomplete_todos %}
+        {% include 'todo_card.html' %}
+        {% endfor %}
+        <div class="todo-item">
+          <div class="card text-center">
+            <div class="card-body">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#addModal">
+                <h5 class="card-title">Add a new todo</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% include 'new_modal.html' %}
+      </div>
+      <div class="col-lg-6" id="completed-todos">
+        <h2>Completed Todos</h2>
+        {% for todo in completed_todos %}
+        {% include 'todo_card.html' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <h2>Please log in to view and manage your todos.</h2>
+  <a href="{{ url_for('auth.login') }}">Login</a>
+  {% endif %}
+  {% endblock %}
+</div>

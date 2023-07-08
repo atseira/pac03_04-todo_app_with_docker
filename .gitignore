@@ -1,0 +1,9 @@
+# Ignore all __pycache__ directories
+**/__pycache__/
+
+# Ignore specific directories
+backups/
+data/
+
+# Ignore environment variable file
+.env
